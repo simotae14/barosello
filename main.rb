@@ -1,5 +1,3 @@
-#Dir["classes/*.rb"].each {|file| require file }
-#Dir["modules/*.rb"].each {|file| require file }
 require_relative './classes/numero_uno'	
 require_relative './classes/numero_due'	
 require_relative './classes/numero_tre'	

@@ -18,30 +18,37 @@ end
 class Game
 	include GameDefault
 	
-
-	def stampa1
+	def calcola1
 		range_list = (0..100).to_a
 		range_list.map! do |i|
 			i = NumeroUno.new(i).message
 		end
-		puts range_list.join ", "
+		range_list.join ", "
 	end
-	def stampa2
+	def stampa1
+		puts calcola1
+	end
+	def calcola2
 		range_list = (0..100).to_a
 		range_list.map! do |i|
 			i = NumeroDue.new(i).message
 		end
-		puts range_list.join ", "
+		range_list.join ", "
 	end
-	def stampa3
+	def stampa2
+		puts calcola2
+	end
+	def calcola3
 		range_list = (0..100).to_a
 		range_list.map! do |i|
 			i = NumeroTre.new(i).message
 		end
-		puts range_list.join ", "
+		range_list.join ", "
 	end
-
-	def stampa4
+	def stampa3
+		puts calcola3
+	end
+	def calcola4
 		range_list = (0..100).to_a
 		result = []
 		range_list.each do |i|
@@ -50,11 +57,12 @@ class Game
 				result << i
 			end
 		end
-
-		puts result.join ", "
+		result.join ", "
 	end
-
-	def stampa5
+	def stampa4
+		puts calcola4
+	end
+	def calcola5
 		range_list = (0..100).to_a
 		result_console = []
 		result_twitter = []
@@ -73,10 +81,15 @@ class Game
 			end
   	
 		end
-
+		return result_console, result_twitter
+	end
+	def stampa5
+		results = calcola5
+		result_console = results[0]
+		result_twitter = results[1]
 		puts result_console.join ", "
 		puts "Controlla la restante stampa al seguente indirizzo, https://twitter.com/design_potato "
-		@tweets = @@client.user_timeline[0..4] # For this demonstration lets keep the tweets limited to the first 5 available.
+		@tweets = @@client.user_timeline[0..10]
 		if(@tweets)
 			@@client.destroy_status(@tweets)
 		end
