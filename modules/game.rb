@@ -64,10 +64,10 @@ class Game
 				i = NumeroDue.new(i).message
 				result_console << i
 			elsif (i != 0 && i % 3 == 0)
-  			i = NumeroDue.new(i).message
+  				i = NumeroDue.new(i).message
 				result_twitter << i
-	  	elsif (i != 0 && i % 5 == 0)
-  			i = NumeroDue.new(i).message
+	  		elsif (i != 0 && i % 5 == 0)
+  				i = NumeroDue.new(i).message
 				result_console << i
 				result_twitter << i
 			end
@@ -76,6 +76,10 @@ class Game
 
 		puts result_console.join ", "
 		puts "Controlla la restante stampa al seguente indirizzo, https://twitter.com/design_potato "
+		@tweets = @@client.user_timeline[0..4] # For this demonstration lets keep the tweets limited to the first 5 available.
+		if(@tweets)
+			@@client.destroy_status(@tweets)
+		end
 		@@client.update(result_twitter.join(', ').slice(0,140))
 	end
 end

@@ -12,26 +12,32 @@ module GameDefault
 
 	def start_gioco
 		loop do 
-			scelta = inserire_numero
-			if(scelta == 1)
+		  scelta = inserire_numero
+		  if(scelta == 1)
 				puts "Il valore finale dello step 1 è: "
-		  	stampa1
+		  		stampa1
+		  		puts
 		  elsif (scelta == 2)
 				puts "Il valore finale dello step 2 è: "
-		  	stampa2	  	
+		  		stampa2
+		  		puts
 		  elsif (scelta == 3)
 				puts "Il valore finale dello step 3 è: "
-		  	stampa3	  	
+		  		stampa3
+		  		puts
 		  elsif (scelta == 4)
 				puts "Il valore finale dello step 4 è: "
-		  	stampa4	  	
+		  		stampa4
+		  		puts
 		  elsif (scelta == 5)
 				puts "Il valore finale dello step 5 è: "
-		  	stampa5  	
+		  		stampa5
+		  		puts
 		  end
 		  # some code here
 		  puts "Se vuoi smettere di giocare premi 'Q'"
 		  scelta = gets.chomp
+		  puts
 		  break if (scelta.upcase == 'Q')
 		end 
 	end
